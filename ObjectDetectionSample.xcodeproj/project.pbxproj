@@ -25,8 +25,6 @@
 		4654451D2686ED7900369EA3 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4654451C2686ED7900369EA3 /* String+Extensions.swift */; };
 		4664AFF5268B668C00D11C2A /* model.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 4664AFF4268B668C00D11C2A /* model.tflite */; };
 		4664AFF8268B669200D11C2A /* labels.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4664AFF7268B669200D11C2A /* labels.txt */; };
-		469400F92688DDD6005BF4F3 /* 86027.tflite in Resources */ = {isa = PBXBuildFile; fileRef = 469400F82688DDD6005BF4F3 /* 86027.tflite */; };
-		469400FD2688DDF0005BF4F3 /* 86027.txt in Resources */ = {isa = PBXBuildFile; fileRef = 469400FC2688DDF0005BF4F3 /* 86027.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,8 +48,6 @@
 		4654451C2686ED7900369EA3 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		4664AFF4268B668C00D11C2A /* model.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = model.tflite; sourceTree = "<group>"; };
 		4664AFF7268B669200D11C2A /* labels.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = labels.txt; sourceTree = "<group>"; };
-		469400F82688DDD6005BF4F3 /* 86027.tflite */ = {isa = PBXFileReference; lastKnownFileType = file; path = 86027.tflite; sourceTree = "<group>"; };
-		469400FC2688DDF0005BF4F3 /* 86027.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 86027.txt; sourceTree = "<group>"; };
 		8DFAB8E68E5BCAC238B91E58 /* Pods-ObjectDetectionSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectDetectionSample.release.xcconfig"; path = "Target Support Files/Pods-ObjectDetectionSample/Pods-ObjectDetectionSample.release.xcconfig"; sourceTree = "<group>"; };
 		BE06E3098E96D486C53CFBA6 /* Pods-ObjectDetectionSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectDetectionSample.debug.xcconfig"; path = "Target Support Files/Pods-ObjectDetectionSample/Pods-ObjectDetectionSample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,8 +160,6 @@
 			children = (
 				4664AFF7268B669200D11C2A /* labels.txt */,
 				4664AFF4268B668C00D11C2A /* model.tflite */,
-				469400F82688DDD6005BF4F3 /* 86027.tflite */,
-				469400FC2688DDF0005BF4F3 /* 86027.txt */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,9 +225,7 @@
 			files = (
 				4664AFF5268B668C00D11C2A /* model.tflite in Resources */,
 				4664AFF8268B669200D11C2A /* labels.txt in Resources */,
-				469400F92688DDD6005BF4F3 /* 86027.tflite in Resources */,
 				465444D42686E4FC00369EA3 /* LaunchScreen.storyboard in Resources */,
-				469400FD2688DDF0005BF4F3 /* 86027.txt in Resources */,
 				465444D12686E4FC00369EA3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -423,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

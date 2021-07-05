@@ -18,6 +18,7 @@ class CameraDetectionViewController: UIViewController {
     let outPutLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.numberOfLines = 0
         return label
     }()
 
@@ -71,7 +72,6 @@ class CameraDetectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Detection"
         guard modelDataHandler != nil else {
           fatalError("Failed to load model")
         }
@@ -79,6 +79,17 @@ class CameraDetectionViewController: UIViewController {
         overlayView.clearsContextBeforeDrawing = true
         self.view.backgroundColor = .white
         self.setDelegates()
+        setBarButtonItem()
+    }
+    
+    private func setBarButtonItem() {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "eyewey_ic"))
+        imageView.contentMode = .scaleAspectFit
+        let nameLabel = UILabel()
+        nameLabel.text = "EyeWey"
+        let stackView = UIStackView(arrangedSubviews: [imageView, nameLabel])
+        stackView.axis = .horizontal
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: stackView)
     }
 
     private func setUI() {
@@ -94,7 +105,8 @@ class CameraDetectionViewController: UIViewController {
             make.edges.equalTo(self.view.safeAreaInsets).priority(.high)
         }
         
-        let bottomView = UIView()
+        let bottomView = UIStackView()
+        bottomView.addArrangedSubview(outPutLabel)
         bottomView.backgroundColor = .white
         
         self.view.addSubview(bottomView)
@@ -103,10 +115,6 @@ class CameraDetectionViewController: UIViewController {
             make.height.equalTo(60).priority(.high)
         }
 
-        self.view.addSubview(outPutLabel)
-        outPutLabel.snp.makeConstraints { make in
-            make.left.right.bottom.equalTo(self.view.safeAreaInsets).inset(15).priority(.high)
-        }
     }
 
     private func setDelegates() {
@@ -116,7 +124,8 @@ class CameraDetectionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         cameraFeedManager.checkCameraConfigurationAndStartSession()
-        
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.backgroundColor = .white
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -150,13 +159,13 @@ extension CameraDetectionViewController: ODCameraFeedManagerDelegate {
                 }
             
                 tempResult.inferences.forEach { item in
-                    let predictionAccuracy = item.confidence * 100.0
-                    if predictionAccuracy > 90 {
-                        self?.outPutLabel.text = item.label
-                        
-                        self?.outPutLabel.becomeFirstResponder()
-                        UIAccessibility.post(notification: .announcement, argument: self?.outPutLabel.text)
+                    if item.label != "" {
+                        let prediction = String(format: "\(item.label) - %.2f", item.confidence * 100.0) + "%"
+                        self?.outPutLabel.text = item.label + prediction
+                    } else {
+                        self?.outPutLabel.text = "No Result"
                     }
+                    
                 }
             }
         }
